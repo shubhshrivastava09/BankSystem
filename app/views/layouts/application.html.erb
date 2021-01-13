@@ -5,7 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+   
+   <nav>
+    Navigation
+    <% if customer_signed_in? %>
+      <%= link_to 'Log out', destroy_customer_session_path, method: :delete %>
+    <% end %>
+    <% if employee_signed_in? %>
+      <%= link_to 'Log out', destroy_employee_session_path, method: :delete %>
+    <% end %>
+    <% if manager_signed_in? %>
+      <%= link_to 'Log out', destroy_manager_session_path, method: :delete %>
+    <% end %>
+    </nav>
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>

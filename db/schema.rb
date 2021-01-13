@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_12_124252) do
+ActiveRecord::Schema.define(version: 2021_01_13_114836) do
 
   create_table "accounts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id"
+    t.float "acc_balance"
+  end
+
+  create_table "atms", id: false, force: :cascade do |t|
+    t.integer "atm_number", null: false
+    t.integer "pin"
+    t.integer "cvv"
+    t.integer "customer_id"
+    t.integer "account_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,7 +41,6 @@ ActiveRecord::Schema.define(version: 2021_01_12_124252) do
     t.string "city"
     t.string "state"
     t.integer "pincode"
-    t.index "\"type\", \"user_id\"", name: "index_users_on_type_and_user_id", unique: true
   end
 
 end
