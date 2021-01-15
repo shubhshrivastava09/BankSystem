@@ -30,6 +30,9 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  #Using Devise for user authentication
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
@@ -75,5 +78,4 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   #Use Devise gem for user authentication
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-end
+  end

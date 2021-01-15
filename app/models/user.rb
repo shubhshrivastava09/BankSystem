@@ -1,10 +1,18 @@
 class User < ApplicationRecord
-	# scope: customers, => {(type:'Customer')}
-	# scope: employees, => {(type:'Employee')}
-	# scope: managers, => {(type:'Manager')}\
-	validates :type,presence:true
-	validates :name,presence:true
-	validates :user_email,presence:true,uniqueness:true
-	validates :user_password , presence:true , length: { in: 6..20 }
-	validates :city,:address,:pincode, presence:true	
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,:omniauthable
+
+	def self.from_omniauth(access_token)
+	  data = access_token.info
+	  user = User.where(:email => data["email"]).first
+
+	  	unless customer
+		    password = Devise.friendly_token[0,20]
+		    user = User.create(name: data["name"], email: data["email"],
+		    password: password, password_confirmation: password)
+	  	end
+  		#user
+	end
 end
