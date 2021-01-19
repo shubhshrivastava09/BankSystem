@@ -312,8 +312,7 @@ Devise.setup do |config|
 
 
   #Configuration for google authencation
-  config.omniauth :google_oauth2, ENV['744148511990-uiu2iir0ag70lkdcgbtcj7se2hnkmakc.apps.googleusercontent.com
-'], ENV['NbhpCW-Wu7d4l_BNM4trwiwx']
+  config.omniauth :google_oauth2,ENV["744148511990-b9rks75kn7mjvdlpgdrskd9j2mqhtkid.apps.googleusercontent.com"], ENV["ztSV9LFMIr6dItR90nE4IS4M"]
 
   #creating views for Customers,Managers,Employees
    config.scoped_views = true

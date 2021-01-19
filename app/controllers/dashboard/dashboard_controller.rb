@@ -1,6 +1,8 @@
 class Dashboard::DashboardController < ApplicationController
 	before_action :authenticate_user!
   def index
-  	User.all
+  	if customer_signed_in?
+  	Customer.all
+  	end
   end
 end

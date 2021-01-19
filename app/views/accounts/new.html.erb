@@ -1,0 +1,17 @@
+
+
+<h1>New Account</h1>
+
+<h3>Customer Name: <%= current_user.name %></h3>
+<h4>Customer ID: <%= current_user.id %></h4>
+
+<%= form_with model: @account do |form| %>
+  <div>
+    <%= form.label :acc_balance %><br>
+    <%= form.text_field :acc_balance%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

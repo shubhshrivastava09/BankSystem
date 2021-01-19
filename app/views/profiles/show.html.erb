@@ -1,0 +1,26 @@
+<div class="container" style="margin: 25px">
+  <% if  current_user.account.present? == false %>
+    <li class="nav-item">
+        <%= link_to " Create Account",customer_accounts_path(current_user.id), method: :post , class:"nav-link text-white"%>
+    </li>
+  <% end %>
+  <li class="nav-item">
+    <%= link_to "My Profile", profile_path(current_user.id) , class:"nav-link text-white"%>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Transactions", new_customer_transaction_path(current_user.id), class:"nav-link text-white" %>
+  </li>
+  <div class="form-horizontal" style="text-align: left">
+    <!-- <p><span style="color: #8F8F8F">User id : </span><span><%=current_user.id%></span></p>
+    --> 
+    <p><span style="color: #8F8F8F">Email : </span><span><%=current_user.email%></span></p>
+    <p><span style="color: #8F8F8F">Name : </span><span><%=current_user.name%></span></p>
+  </div>
+  <div>
+    <% if current_user.account.present? %>
+      <h2>Account Details</h2>
+      <p><strong>Account No:<%= current_user.account.id%></strong></p>
+      <p><strong>Account Balance:<%= current_user.account.acc_balance%></strong></p>
+    <% end %>
+  </div>
+</div>
