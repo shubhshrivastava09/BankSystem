@@ -1,0 +1,27 @@
+
+
+<h1>All Transactions</h1>
+<table style="padding: 5px">
+  <tr style="padding: 10px;text-align:center">
+  <th>Transaction_id</th>
+  <th>Created_at</th> 
+  <th>Updated_at</th> 
+  <th>Customer_id</th>
+  <th>Dr_Amt</th>
+  <th>Cr_Amt</th>
+  <th>Transaction_type</th>
+  <th>Account_id</th>
+  </tr>
+  <% @user_trans.each do |transact| %>
+    <tr style="padding: 20px;text-align:center">
+   <td style="padding: 20px"><%= transact.id %></td>  
+    <td style="padding: 20px"><%= transact.created_at %></td>
+    <td style="padding: 20px"><%= transact.updated_at %></td>
+    <td style="padding: 22px"><%= transact.customer_id%></td>   
+    <td style="padding: 20px"><%= transact.dr_amt %></td>
+    <td style="padding: 20px"><%= transact.cr_amt %></td>
+    <td style="padding: 20px"><%= transact.transaction_type %></td>
+    <td style="padding: 20px"><%= transact.account_id %></td>
+   </tr>
+  <% end %>
+</table>

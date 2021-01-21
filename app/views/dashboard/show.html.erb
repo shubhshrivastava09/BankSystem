@@ -1,0 +1,10 @@
+
+  <div  style="float: right;padding: 5px" class="nav-item">
+    <%= link_to "Manage Attendence", new_user_attendence_path(current_user.id)%>
+  </div>
+  <p><strong>Employee ID:<h2 style="color: blue"><%=current_user.id%></h2></strong></p>
+  <p><strong>Employee Name:<h2 style="color: blue">  <%=current_user.name%></h2></strong></p>
+  <p><strong>Email:<h2 style="color: blue">  <%=current_user.email%></h2></strong></p>
+  <p><strong>Designation:<h2 style="color: blue"> <%=current_user.type%></h2></strong></p>
+
+  

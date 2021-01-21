@@ -1,8 +1,18 @@
-<div class="container" style="margin: 25px">
-  <% if  current_user.account.present? == false %>
-    <li class="nav-item">
-        <%= link_to " Create Account",customer_accounts_path(current_user.id), method: :post , class:"nav-link text-white"%>
-    </li>
+<div>
+   <div style="margin: 50px" >
+    <%= form_with(model: @picture, url: customer_pictures_path(current_user.id)) do |f| %>
+      <%= f.file_field :name %>
+      <%= f.hidden_field :name_cache %>
+      <%= f.submit "Create"%>
+    <% end %>
+  </div>
+</div>
+
+<div class="container" style="margin: 25px">  
+    <% if  current_user.account.present? == false %>
+      <li class="nav-item">
+          <%= link_to " Create Account",customer_accounts_path(current_user.id), method: :post , class:"nav-link text-white"%>
+      </li>
   <% end %>
   <li class="nav-item">
     <%= link_to "My Profile", profile_path(current_user.id) , class:"nav-link text-white"%>

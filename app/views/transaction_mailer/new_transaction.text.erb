@@ -1,0 +1,12 @@
+<!-- Transaction#new_transaction
+
+<%= @greeting %>, find me in app/views/transaction_mailer/new_transaction.text.erb -->
+
+HI <%@trans.customer.name%> A new transaction is generated from your account number <@trans.account_id> Transaction Details are below,
+
+Transaction_type:<%= @trans.transaction_type%>
+Customer Id:<%=  @trans.customer_id%> 
+Account Number: <%= @trans.account_id%>
+Amount Debited: <%= @trans.dr_amt%>
+Amount Credited: <%= @trans.cr_amt%>
+Your Current Account Balance is <%=@trans.account.acc_balance%>

@@ -1,0 +1,9 @@
+
+<div style="margin-top: 30px;padding: 20px">
+	<%= form_with(model: @attend, url: user_attendences_path(current_user.id)) do |form| %>
+	   	 <%= form.label :Attendance_Date %>
+	   	 <%= form.date_field :att_date %>
+	   	 <%= form.select :status, Attendence.statuses.keys, {}%>
+	     <%= form.submit "submit" %>
+	<% end %>
+</div>

@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-	namespace :dashboard do
-		root to: "dashboard#index"
-    #root to: "dashboard#index"
-	end
+	resources :dashboard, only: [:index,:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #devise_for :users,:controllers => {:omniauth_callbacks => "users/omniauth_callbacks" }
   devise_for :customers#,:controllers => { :omniauth_callbacks => "customers/omniauth_callbacks" }
@@ -14,5 +11,14 @@ Rails.application.routes.draw do
   end
   resources :customers do
     resources :transactions, only: [:index,:show,:new,:create]
+    resources :pictures, only: [:new,:create]
+  end
+
+  resources :employees do
+    resources :pictures, only: [:new,:create]
+  end
+
+  resources :users do
+    resources :attendences, only: [:new,:create,:show]
   end
 end

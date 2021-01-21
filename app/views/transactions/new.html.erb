@@ -5,3 +5,8 @@
      <%= form.number_field :cr_amt ,min: 0.01,step: 0.01 %>
      <%= form.submit "Create Transaction" %>
 <% end %>
+ 
+<div  style ="margin-left:25px;margin-top:25px;float:right">
+ <%#= link_to "Transaction History",customer_transaction_path(current_user.id)%>
+ <%= link_to "Transactions History", :controller => "transactions", :action => "show" , :id  =>  current_user.id %>
+</div>

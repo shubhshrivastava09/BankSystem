@@ -1,11 +1,14 @@
 class ApplicationController < ActionController::Base
 	devise_group :user, contains: [:manager,:customer,:employee]
 	before_action :configure_permitted_parameters, if:  :devise_controller?
-
-	def after_sign_in_path_for(resource)
-  		profile_path(resource)# your path
-  	end
-
+  
+      def after_sign_in_path_for(resource)
+        if current_user.type == "Customer"
+          profile_path(resource)# your path
+        else
+         dashboard_path(resource)
+        end
+      end
   	protected
 
   	def configure_permitted_parameters

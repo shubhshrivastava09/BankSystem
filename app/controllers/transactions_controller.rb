@@ -28,13 +28,16 @@ class TransactionsController < ApplicationController
     
     if @trans.save
       flash[:notice] = 'Transaction successfull!'
+      TransactionMailer.new_transaction(@trans).deliver_now
       redirect_to new_customer_transaction_path(current_user.id)
     end
   end
 
   def show
     #Show Action
+    @user_trans = current_user.transactions.all
   end
+
   private 
   def trans_params
     params.require(:transaction).permit(:customer_id,:account_id,:dr_amt,:cr_amt,:transaction_type,:amount)

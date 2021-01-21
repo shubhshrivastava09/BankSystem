@@ -16,7 +16,6 @@
     <p class="alert"><%= alert %></p>
 
     <nav>
-      Navigation
       <% if employee_signed_in? %>
           <%= link_to 'Log out', destroy_employee_session_path, method: :delete %>
       <% end %>

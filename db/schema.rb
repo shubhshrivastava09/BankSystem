@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_19_133351) do
+ActiveRecord::Schema.define(version: 2021_01_21_064157) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -27,6 +27,25 @@ ActiveRecord::Schema.define(version: 2021_01_19_133351) do
     t.integer "account_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "attendences", force: :cascade do |t|
+    t.datetime "att_date"
+    t.string "employable_type"
+    t.integer "employable_id"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employable_type", "employable_id"], name: "index_attendences_on_employable"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string "name"
+    t.string "imageable_type"
+    t.integer "imageable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable"
   end
 
   create_table "transactions", force: :cascade do |t|
